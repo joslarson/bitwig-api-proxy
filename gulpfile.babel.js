@@ -9,10 +9,10 @@ const tsProject = gts.createProject('tsconfig.json', { typescript });
 gulp.task('js', () => {
     const tsResult = tsProject.src().pipe(tsProject());
     return merge([
-        tsResult.dts.pipe(gulp.dest('dist')),
+        tsResult.dts.pipe(gulp.dest('dist/lib')),
         tsResult.js
             .pipe(babel({ babelrc: false, presets: ['es3'] }))
-            .pipe(gulp.dest('dist')),
+            .pipe(gulp.dest('dist/lib')),
     ]);
 });
 

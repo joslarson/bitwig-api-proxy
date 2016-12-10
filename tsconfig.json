@@ -9,7 +9,7 @@
         "baseUrl": "./src",
         "moduleResolution": "node",
         // "watch": true,
-        "outDir": "./dist"
+        "outDir": "./dist/lib"
     },
     "compileOnSave": false,
     "include": [
