@@ -1,32 +1,21 @@
 import gulp from 'gulp';
 import typescript from 'typescript';
 import gts from 'gulp-typescript';
-import babel from 'gulp-babel';
 import merge from 'merge2';
 
 
+// gulp build
 const tsProject = gts.createProject('tsconfig.json', { typescript });
-gulp.task('js', () => {
+gulp.task('build', () => {
     const tsResult = tsProject.src().pipe(tsProject());
     return merge([
-        tsResult.dts.pipe(gulp.dest('dist/lib')),
-        tsResult.js
-            .pipe(babel({ babelrc: false, presets: ['es3'] }))
-            .pipe(gulp.dest('dist/lib')),
+        tsResult.dts.pipe(gulp.dest('lib')),
+        tsResult.js.pipe(gulp.dest('lib')),
     ]);
 });
 
-// copy misc
-gulp.task('copy', () =>
-    gulp.src(['README.md', 'LICENSE', 'package.json'])
-        .pipe(gulp.dest('dist'))
-);
-
 // gulp watch
-gulp.task('watch', ['js', 'copy'], () => {
-    gulp.watch('src/**/*.ts', ['js']);
-    gulp.watch(['README.md', 'LICENSE', 'package.json'], ['copy']);
-});
+gulp.task('watch', ['build'], () => gulp.watch('src/**/*.ts', ['js']));
 
 // default task
-gulp.task('default', ['js', 'copy']);
+gulp.task('default', ['build']);
