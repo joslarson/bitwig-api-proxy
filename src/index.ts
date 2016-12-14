@@ -51,7 +51,7 @@ export {default as DrumPadBank} from './DrumPadBank';
 export {default as EnumValue} from './EnumValue';
 export {default as GenericBrowsingSession} from './GenericBrowsingSession';
 export {default as Groove} from './Groove';
-export {default as Host} from './Host';
+export {default as Host, host} from './Host';
 export {default as IntegerValue} from './IntegerValue';
 export {default as Macro} from './Macro';
 export {default as MasterTrack} from './MasterTrack';

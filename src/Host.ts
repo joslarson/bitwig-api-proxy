@@ -619,5 +619,9 @@ declare interface Host {
 
 }
 
+declare const host;
+const hostproxy = new Host(host);
+
 
 export default Host;
+export { hostproxy as host };
