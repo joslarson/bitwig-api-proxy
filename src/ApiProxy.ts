@@ -15,10 +15,8 @@ export default class ApiProxy {
     }
 
     private __noSuchMethod__(methodName: string, args) {
-        if (methodName.slice(0, 3) === 'get') {  // starts with 'get'
-            return this._handleGet(methodName, args);
-        } else if (methodName.slice(0, 6) === 'create') {  // starts with 'create'
-            return this._handleCreate(methodName, args);
+        if (methodName.slice(0, 3) === 'get' || methodName.slice(0, 6) === 'create') {  // starts with 'get' or 'create'
+            return this._handleGetOrCreate(methodName, args);
         } else if (methodName.slice(0, 3) === 'add' && methodName.slice(-8) === 'Observer') {  // starts with add, ends with Observer
             return this._handleAddObserver(methodName, args);
         } else {
@@ -30,7 +28,7 @@ export default class ApiProxy {
         return this.target[methodName].apply(this.target, args);
     }
 
-    private _handleGet(methodName: string, args: any[]) {
+    private _handleGetOrCreate(methodName: string, args: any[]) {
         let newTargetResult = this._getTargetResult(methodName, args);
         if (typeof newTargetResult !== 'object') return newTargetResult;
 
@@ -48,15 +46,6 @@ export default class ApiProxy {
         // first time called: cache and return result
         if (ProxyClass !== undefined) {
             return this._methodCallCache[methodCallKey] = new ProxyClass(newTargetResult);
-        } else {
-            throw `No proxy class in methodClassMap for method "${methodName}".`;
-        }
-    }
-
-    private _handleCreate(methodName: string, args: any[]) {
-        let ProxyClass = this._methodClassMap[methodName];
-        if (ProxyClass !== undefined) {
-            return new ProxyClass(this._getTargetResult(methodName, args));
         } else {
             throw `No proxy class in methodClassMap for method "${methodName}".`;
         }
