@@ -3,6 +3,12 @@
 This set of proxy classes wrap the Bitwig Controller Scripting API in a way that automatically caches observed properties and created objects, while having the added benefit of removing the need for stub files. It exists as part of the Typewig framework, but can be used generally.
 
 
+## Installation
+
+```bash
+$ npm install --save bitwig-api-proxy
+```
+
 ## Usage
 
 Once you have setup an observer for the first time or called a create method...
