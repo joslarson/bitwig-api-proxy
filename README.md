@@ -30,5 +30,5 @@ console.log(transport.cache.isPlaying);  // always reflects the current isPlayin
 
 ## Limitations
 
-The cache, while helpful, currently has it's limitations. Cached property names will be the same for method calls with the same methodName, but different args. That means that if you call a create method more than once, each subsequent call will replace the associated cached reference. The same goes for observer methods.
+The cache, while helpful, currently has its limitations. Cached property names will be the same for method calls with the same methodName, but different args. That means that if you call a create method more than once, each subsequent call will replace the associated cached reference. The same goes for observer methods.
 
