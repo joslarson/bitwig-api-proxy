@@ -1,6 +1,6 @@
 {
   "name": "bitwig-api-proxy",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A set of proxy classes that wrap the Bitwig Controller Scripting API in a way that automatically caches observed properties and created objects.",
   "tags": [
     "bitwig",
@@ -36,5 +36,8 @@
   "bugs": {
     "url": "https://github.com/typewig/bitwig-api-proxy/issues"
   },
-  "homepage": "https://github.com/typewig/bitwig-api-proxy#readme"
+  "homepage": "https://github.com/typewig/bitwig-api-proxy#readme",
+  "dependencies": {
+    "tslib": "^1.5.0"
+  }
 }
