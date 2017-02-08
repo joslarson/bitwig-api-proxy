@@ -1,5 +1,9 @@
 # Bitwig API Proxy
 
+**This package is no Longer useful in Bitwig >= 2.0** as the api now gives you direct access to read values without setting up observers. As such, **this package will no longer be maintained**.
+
+------
+
 This set of proxy classes wrap the Bitwig Controller Scripting API in a way that automatically caches observed properties and created objects, while having the added benefit of removing the need for stub files. It exists as part of the Typewig framework, but can be used generally.
 
 
