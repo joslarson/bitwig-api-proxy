@@ -1,6 +1,6 @@
 # Bitwig API Proxy
 
-**This package is no Longer useful in Bitwig >= 2.0** as the api now gives you direct access to read values without setting up observers. As such, **this package will no longer be maintained**.
+**DON'T USE THIS. This package is no longer useful in Bitwig >= 2.0** as the api now gives you direct access to read values without setting up observers. As such, **this package will no longer be maintained**.
 
 ------
 
